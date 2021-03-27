@@ -47,7 +47,7 @@ const Layout: React.FC<{ image: string; code: string }> = (props) => {
               className="mb-4 md:mb-0 w-full max-w-screen-md mx-auto relative"
               style={{ height: "24em" }}
             >
-              <a href={`/?c=${props.code}`}>
+              <a href={`/py?c=${props.code}`}>
                 <img
                   src={props.image}
                   className="absolute left-0 top-0 w-full h-full z-0 object-cover"
