@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
   const c = "a%3Dlambda+x%3A+x%2A2%3B+b=1/a(2)%0Ab-3;c=4;d=5;e=8;a(2)-b-c-d";
   return {
     props: {
-      img_url: `https://repl-this.vercel.app/api/py.png?c=${c}`,
+      img_url: `//${process.env.VERCEL_URL}/api/py.png?c=${c}`,
       code: c,
     },
   };
