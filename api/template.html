@@ -125,7 +125,6 @@
     <script>
       setTimeout(() => {
         const content = document.getElementById('content')
-        console.log(content.clientHeight)
         const sw = 1200/(content.clientWidth);
         const sv = 628/(content.clientHeight);
         content.style.transform="scale("+Math.min(sw, sv)+')';
