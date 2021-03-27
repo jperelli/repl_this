@@ -1,0 +1,27 @@
+{
+  "name": "repler",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "vdev": "vercel dev",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@types/react": "^17.0.3",
+    "autoprefixer": "^10.2.5",
+    "axios": "^0.21.1",
+    "fs-temp": "^1.2.1",
+    "handlebars": "^4.7.7",
+    "next": "10.0.8",
+    "playwright": "^1.9.2",
+    "playwright-aws-lambda": "^0.6.0",
+    "playwright-core": "^1.9.2",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "tailwindcss": "^2.0.4",
+    "typescript": "^4.2.3",
+    "vercel": "^21.3.3"
+  }
+}
