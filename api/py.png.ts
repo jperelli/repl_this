@@ -28,12 +28,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     try {
       source = (
-        await axios.post("https://69ee0f2dac98.ngrok.io/api/py_pretty", {
+        await axios.post("https://repl-this.vercel.app/api/py_pretty", {
           code: req.query.c,
         })
       ).data;
       output = (
-        await axios.post("https://69ee0f2dac98.ngrok.io/api/py_exec", {
+        await axios.post("https://repl-this.vercel.app/api/py_exec", {
           code: req.query.c,
         })
       ).data;
