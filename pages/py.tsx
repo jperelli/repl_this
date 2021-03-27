@@ -16,7 +16,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
   const c = context.req.url.split("?")[1].split("c=")[1].split("&")[0];
   return {
     props: {
-      img_url: `//${process.env.VERCEL_URL}/api/py.png?c=${c}`,
+      img_url: `${process.env.NO_SSL ? "http" : "https"}://${
+        process.env.VERCEL_URL
+      }/api/py.png?c=${c}`,
       code: c,
     },
   };
