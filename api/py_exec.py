@@ -15,7 +15,7 @@ def run(code):
     pluserr = ''
     try:
         # TODO: this try except does not work. All serverless function explodes here if code is invalid :S
-        IPython.start_ipython(argv=["--init","-c", code], user_ns={})
+        IPython.start_ipython(argv=["--init","--quiet","-c", code], user_ns={})
         # exec(code, {}, {})
     except Exception as e:
         pluserr = str(e)
