@@ -1,3 +1,3 @@
 # repl_this
 
-https://repl_this.vercel.app/
+https://repl-this.vercel.app/
