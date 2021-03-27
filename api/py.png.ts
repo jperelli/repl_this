@@ -54,7 +54,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       ],
       defaultViewport: chrome.defaultViewport,
       executablePath: await chrome.executablePath,
-      headless: false,
+      headless: true,
       ignoreHTTPSErrors: true,
       dumpio: true,
     });
