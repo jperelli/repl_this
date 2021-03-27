@@ -15,12 +15,12 @@ def run(code):
     pluserr = ''
     try:
         # TODO: this try except does not work. All serverless function explodes here if code is invalid :S
-        IPython.start_ipython(argv=["--init","--quiet","-c", code], user_ns={})
+        IPython.start_ipython(argv=["--simple-prompt","--init","-c", r"%reset -f" + "\n" + code], user_ns={})
         # exec(code, {}, {})
     except Exception as e:
         pluserr = str(e)
     out = auxout.getvalue()
-    err = auxerr.getvalue() + pluserr
+    err = auxerr.getvalue() # + pluserr
     sys.stdout = oldout
     sys.stderr = olderr
     return out, err
@@ -51,4 +51,4 @@ class handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type','text/plain')
         self.end_headers()
-        self.wfile.write((out + err).encode())
+        self.wfile.write(out.encode())
