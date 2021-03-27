@@ -68,7 +68,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       timeout: 10000,
     });
     await page.waitForTimeout(2000);
-    const buffer = await (await page.$("#all")).screenshot();
+    const buffer = await (await page.$("#all")).screenshot() as Buffer;
 
     // const browser = await playwright.launchChromium();
     // const context = await browser.newContext({});
