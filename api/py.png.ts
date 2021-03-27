@@ -16,7 +16,6 @@ const loadFonts = async () => {
   await chrome.font(path.join(__dirname, "template", "UbuntuMono-Italic.ttf"));
   await chrome.font(path.join(__dirname, "template", "UbuntuMono-Regular.ttf"));
 }
-loadFonts()
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   let browser = null;
@@ -53,6 +52,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     );
     const htmlstr = template({ source, output, language: "python" });
 
+    await loadFonts();
     const browser = await puppeteer.launch({
       args: [
         ...chrome.args,
