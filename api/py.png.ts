@@ -10,6 +10,14 @@ import puppeteer from "puppeteer-core";
 //   playwright = require("playwright");
 // }
 
+const loadFonts = async () => {
+  await chrome.font(path.join(__dirname, "template", "UbuntuMono-Bold.ttf"));
+  await chrome.font(path.join(__dirname, "template", "UbuntuMono-BoldItalic.ttf"));
+  await chrome.font(path.join(__dirname, "template", "UbuntuMono-Italic.ttf"));
+  await chrome.font(path.join(__dirname, "template", "UbuntuMono-Regular.ttf"));
+}
+loadFonts()
+
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   let browser = null;
   let source = req.query.c;
@@ -41,7 +49,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       console.log("axios error");
     }
     const template = Handlebars.compile(
-      fs.readFileSync(path.join(__dirname, "template.html"), "utf8")
+      fs.readFileSync(path.join(__dirname, "template", "template.html"), "utf8")
     );
     const htmlstr = template({ source, output, language: "python" });
 
@@ -67,7 +75,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       waitUntil: "domcontentloaded",
       timeout: 5000,
     });
-    const buffer = await (await page.$("#all")).screenshot() as Buffer;
+    const buffer = (await (await page.$("#all")).screenshot()) as Buffer;
 
     // const browser = await playwright.launchChromium();
     // const context = await browser.newContext({});
